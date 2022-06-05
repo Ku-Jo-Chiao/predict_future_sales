@@ -78,3 +78,7 @@
 |214197|1.07840
 |214198|1.0621
 |214199|1.03582
+
+# 其他
+1.由於我們訓練的時候是在colab上做訓練與測試，若要下載本專案之程式碼來跑的話檔案路徑需更改('/content/gdrive/MyDrive/Colab Notebooks/sales_train.csv'->'sales_train.csv')
+2.由於sales_train.csv檔案太大無法上傳至github，所以跑程式碼前須先至kaggle下載該檔案
