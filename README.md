@@ -37,3 +37,4 @@
 
 # Model Architecture
 本專案之訓練模型使用Scikit-learn中的XGBoost建構，其參數設定如下表所示。
+![GITHUB]https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/xgb_arch.PNG
