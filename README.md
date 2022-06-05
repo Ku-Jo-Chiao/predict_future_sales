@@ -37,4 +37,44 @@
 
 # Model Architecture
 本專案之訓練模型使用Scikit-learn中的XGBoost建構，其參數設定如下表所示。
-![GITHUB]https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/xgb_arch.PNG
+![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/xgb_arch.PNG "XGBoost 參數設定") 
+
+## 訓練模型
+使用[**Predict_future_sales_v1.py**](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/Predict_future_sales_v1.ipynb)進行訓練，本程式中包含了訓練資料的處理以及訓練、驗證模型兩部分。
+
+|Name|Input|Default
+|:---:|---|---
+|--training|訓練資料|./data/sales_train.csv
+|--testing|測試目標商店與商品的列表|./data/test.csv
+|--output|輸出訓練模型|xgboost_model.h5
+
+#### 測試模型
+使用[**Predict_future_sales_v1.py**](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/Predict_future_sales_v1.ipynb)進行測試，本程式中包含了測試資料的處理以及使用模型預測結果輸出兩部分。
+
+|Name|Input|Default
+|:---:|---|---
+|--model|訓練完成的模型|xgboost_model.h5
+|--training|訓練模型時使用的資料|./data/sales_train.csv
+|--testing|測試目標商店與商品的列表|./data/test.csv
+|--output|輸出預測結果|xgb_sub_v1.csv
+
+# 成果
+## 模型
+本專案之模型訓練成果如下圖所示。
+
+![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/xgb_se.PNG "XGBoost mse result") 
+
+## 預測
+預測結果之格式如下表所示
+
+|ID|item_cnt_month|
+|:---|:---|
+|0|1.09011
+|1|1.091011
+|2|1.085866
+|3|1.091011
+|4|1.0927
+|214196|1.07840
+|214197|1.07840
+|214198|1.0621
+|214199|1.03582
