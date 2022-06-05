@@ -62,7 +62,7 @@
 ## 模型
 本專案之模型訓練成果如下圖所示。
 
-![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/xgb_se.PNG "XGBoost mse result") 
+![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/xgb_mse.PNG "XGBoost mse result")
 
 ## 預測
 預測結果之格式如下表所示
