@@ -2,12 +2,12 @@
 本專案為Kaggle上[**Predict Future Sales**](https://www.kaggle.com/c/competitive-data-science-predict-future-sales/overview)以預測未來銷售量為目標的一項比賽。具體目標為使用過去各間商店各個商品的每日銷售量預測各商店中各種商品的未來一個月銷售量。本專案使用XGBoost建構預測模型，並使用過去34個月的銷售數據進行訓練，並預測未來一個月的銷售量。
 
 # Development Environment
+本專案是在colab上做訓練與測試。
 |Package|Version|
 |:---:|:---:|
 |Pandas|1.2.4
 |Numpy|1.19.5
 |Scikit-learn|0.24.2
-|Joblib|1.0.1
 
 # Dataset
 本專案所使用的資料皆由[**Predict Future Sales**](https://www.kaggle.com/c/competitive-data-science-predict-future-sales/overview)提供，詳情請參閱[**Predict Future Sales/Data**](https://www.kaggle.com/c/competitive-data-science-predict-future-sales/data)。
@@ -20,6 +20,16 @@
 |test|ID表示測試集中(shop,item)組的唯一識別代號、shop_id商店唯一識別代號、item_id商品唯一識別代號
 
 # Data Processing
+
+## 資料觀察
+1. 查看商品類別與商品月銷售量之關係。
+2. ![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/category_%E6%9C%88%E9%8A%B7%E5%94%AE.png)
+3. 查看店家與商品月銷售量之關係。
+4. ![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/shop%E6%9C%88%E9%8A%B7%E5%94%AE.png)
+5. 將數據的時間線向後平移（1月label是2月銷售量）
+6. 針對每個商品價格波動作分析（商品最高價格、商品最低價格、價格增加量、價格減少量）
+7. 對商品、店家、年、月建構均值特徵
+
 ## 訓練資料
 1. 匯入sales_train.csv
 2. 將sales_train.csv中的時間格式由日-月-年改成年-月，並將日期由遠到近排列
@@ -40,23 +50,32 @@
 ![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/xgb_arch.PNG "XGBoost 參數設定") 
 
 ## 訓練模型
-使用[**Predict_future_sales_v1.py**](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/Predict_future_sales_v1.ipynb)進行訓練，本程式中包含了訓練資料的處理以及訓練、驗證模型兩部分。
+使用[**Predict_future_sales.ipynb**](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/Predict_future_sales.ipynb)進行訓練，本程式中包含了訓練資料的處理以及訓練、驗證模型兩部分。
 
 |Name|Input|Default
 |:---:|---|---
 |--training|訓練資料|./data/sales_train.csv
 |--testing|測試目標商店與商品的列表|./data/test.csv
-|--output|輸出訓練模型|xgboost_model.h5
+|--output|輸出訓練模型|xgb_model.h5
 
-#### 測試模型
-使用[**Predict_future_sales_v1.py**](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/Predict_future_sales_v1.ipynb)進行測試，本程式中包含了測試資料的處理以及使用模型預測結果輸出兩部分。
+#### 訓練資料集所有的特徵如下圖所示。
+![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/all_features.png)
+
+#### 訓練與驗證資料集格式如下圖所示。
+![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/data_format.png)
+
+## 測試模型
+使用[**Predict_future_sales.ipynb**](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/Predict_future_sales.ipynb)進行測試，本程式中包含了測試資料的處理以及使用模型預測結果輸出兩部分。
 
 |Name|Input|Default
 |:---:|---|---
-|--model|訓練完成的模型|xgboost_model.h5
+|--model|訓練完成的模型|xgb_model.h5
 |--training|訓練模型時使用的資料|./data/sales_train.csv
 |--testing|測試目標商店與商品的列表|./data/test.csv
-|--output|輸出預測結果|xgb_sub_v1.csv
+|--output|輸出預測結果|xgb_sub_v4.csv
+
+#### 測試資料集格式如下圖所示。
+![GITHUB]https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/data_format.png
 
 # 成果
 ## 模型
@@ -69,15 +88,15 @@
 
 |ID|item_cnt_month|
 |:---|:---|
-|0|1.09011
-|1|1.091011
-|2|1.085866
-|3|1.091011
-|4|1.0927
-|214196|1.07840
-|214197|1.07840
-|214198|1.0621
-|214199|1.03582
+|0|0.4320
+|1|0.08875
+|2|0.55715
+|3|0.088752
+|4|0.088752
+|214196|0.08897
+|214197|0.2167
+|214198|0.0889
+|214199|0.19906
 
 # 其他
 1.由於我們訓練的時候是在colab上做訓練與測試，若要下載本專案之程式碼來跑的話檔案路徑需更改('/content/gdrive/MyDrive/Colab Notebooks/sales_train.csv'->'sales_train.csv')
