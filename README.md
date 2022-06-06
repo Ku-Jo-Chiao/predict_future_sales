@@ -1,5 +1,5 @@
 # Predict Future Sales
-本專案為Kaggle上[**Predict Future Sales**](https://www.kaggle.com/c/competitive-data-science-predict-future-sales/overview)以預測未來銷售量為目標的一項比賽。具體目標為使用過去各間商店各個商品的每日銷售量預測各商店中各種商品的未來一個月銷售量。本專案使用XGBoost建構預測模型，並使用過去34個月的銷售數據進行訓練，並預測未來一個月的銷售量。
+本專案為Kaggle上[**Predict Future Sales**](https://www.kaggle.com/c/competitive-data-science-predict-future-sales/overview)以預測未來銷售量為目標的一項比賽。具體目標為使用過去各間商店各個商品的每日銷售量預測各商店中各種商品的未來一個月銷售量。本專案使用XGBoost建構預測模型，並使用過去34個月的銷售數據進行訓練，並預測未來一個月的銷售量。本專案測試了許多不同格式的訓練資料集與模型，最終採用[**Predict_future_sales.ipynb**](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/Predict_future_sales.ipynb) 版本作為最終實作成果。
 
 # Development Environment
 本專案是在colab上做訓練與測試。
