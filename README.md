@@ -72,7 +72,7 @@
 |--output|輸出預測結果|xgb_sub_v4.csv
 
 #### 測試資料集格式如下圖所示。
-![GITHUB]https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/data_format.png
+![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/data_format.png)
 
 # 成果
 ## 模型
