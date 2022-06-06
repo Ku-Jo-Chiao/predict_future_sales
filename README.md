@@ -23,12 +23,12 @@
 
 ## 資料觀察
 1. 查看商品類別與商品月銷售量之關係。
-2. ![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/category_%E6%9C%88%E9%8A%B7%E5%94%AE.png)
-3. 查看店家與商品月銷售量之關係。
-4. ![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/shop%E6%9C%88%E9%8A%B7%E5%94%AE.png)
-5. 將數據的時間線向後平移（1月label是2月銷售量）
-6. 針對每個商品價格波動作分析（商品最高價格、商品最低價格、價格增加量、價格減少量）
-7. 對商品、店家、年、月建構均值特徵
+![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/category_%E6%9C%88%E9%8A%B7%E5%94%AE.png)
+2. 查看店家與商品月銷售量之關係。
+![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/shop%E6%9C%88%E9%8A%B7%E5%94%AE.png)
+3. 將數據的時間線向後平移（1月label是2月銷售量）
+4. 針對每個商品價格波動作分析（商品最高價格、商品最低價格、價格增加量、價格減少量）
+5. 對商品、店家、年、月建構均值特徵
 
 ## 訓練資料
 1. 匯入sales_train.csv
@@ -36,14 +36,11 @@
 3. 將sales_train.csv中日期的部分拆解成年和月，刪除原本date和日的資訊
 4. 將item_cnt_day和item_price的離群資料(item_cnt_day>1001 and item_price>300000)刪除
 5. 將某筆item_price<0的資料修改成該商店該商品所有價錢的中間值
-6. 將data_block_num=0 ~ data_block_num=32的資料當成訓練集，而data_block_num=33的資料當成驗證集
+6. 將data_block_num=0 ~ data_block_num=26的資料當成訓練集，而data_block_num=27~33的資料當成驗證集
 
 ## 測試資料
 1. 匯入test.csv
-2. 將test.csv多新增'year'欄位，且所有值設為2015
-3. 將test.csv多新增'month'欄位，且所有值設為11
-4. 將test.csv多新增'data_block_num'欄位，且所有值設為34
-5. 將test.csv的所有欄位順序調整成和sales_train.csv一樣
+2. 將test.csv的所有欄位順序調整成和sales_train.csv一樣
 
 # Model Architecture
 本專案之訓練模型使用Scikit-learn中的XGBoost建構，其參數設定如下表所示。
