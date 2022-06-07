@@ -61,6 +61,9 @@
 #### 訓練與驗證資料集格式如下圖所示。
 ![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/data_format.png)
 
+#### 訓練資料集混淆矩陣如下圖所示。
+![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/data_confution_matrix.png)
+
 ## 測試模型
 使用[**Predict_future_sales.ipynb**](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/Predict_future_sales.ipynb)進行測試，本程式中包含了測試資料的處理以及使用模型預測結果輸出兩部分。
 
@@ -73,6 +76,9 @@
 
 #### 測試資料集格式如下圖所示。
 ![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/data_format.png)
+
+#### 測試資料集混淆矩陣如下圖所示。
+![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/data_confution_matrix.png)
 
 # 成果
 ## 模型
@@ -94,6 +100,9 @@
 |214197|0.2167
 |214198|0.0889
 |214199|0.19906
+
+## 預測結果放到kaggle上比較之結果。
+![GITHUB](https://github.com/Ku-Jo-Chiao/predict_future_sales/blob/main/figure/kaggle_score.png)
 
 # 其他
 1.由於我們訓練的時候是在colab上做訓練與測試，若要下載本專案之程式碼來跑的話檔案路徑需更改('/content/gdrive/MyDrive/Colab Notebooks/sales_train.csv'->'sales_train.csv')
